@@ -1,0 +1,11 @@
+﻿@model IEnumerable<nhom10.Models.TbMenu>
+
+@foreach (var item in Model.Where(i => i.Levels == 1))
+{
+    <ul>
+       
+        <a href="/@item.Alias">
+            @item.Title
+        </a>
+    </ul>
+}

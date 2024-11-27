@@ -1,0 +1,31 @@
+﻿@model IEnumerable<nhom10.Models.TbProduct>
+
+@foreach (var item in Model)
+{
+    string sUrl = $"/product/{item.Alias}-{item.ProductId}.html";
+    <div class="col-lg-3">
+
+        <div class="categories__item set-bg">
+            
+            <img class="img-full" src="@item.Image" alt="Product Images">
+            
+            <h5 href="@sUrl">@item.Title</h5>
+            <div class="card-body">
+                    @if (item.PriceSale == 0)
+                    {
+                        <span class="new-price text-danger">$@item.Price</span>
+                    }
+                    else
+                    {
+                        <span class="new-price text-danger">$@item.PriceSale</span>
+                        <span class="old-price text-primary">$@item.Price</span>
+                    }
+                <p class="card-product__title"><a href="#">@item.Title</a></p>
+                <p class="card-product__price">@item.Price VNĐ</p>
+
+            </div>
+
+        </div>
+    </div>
+}
+
